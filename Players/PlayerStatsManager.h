@@ -1,16 +1,16 @@
-//
-// Created by kingh on 18/01/2025.
-//
-
 #pragma once
 #include <string>
+
+const unsigned int MAX_HP = 100;
+
+// do this later...
 
 class PlayerStatsManager {
 private:
         std::string name;
-        unsigned int maxHp = 100;
+        unsigned int maxHp = MAX_HP;
         unsigned int currentHp = maxHp;
-        bool isAwake = true; // inverting this for isFainted()
+        bool isAwake = true; // inverting this for isKnockedOut()
         unsigned int level = 1;
         unsigned int force = 5;
         unsigned int coins = 10;
@@ -18,7 +18,7 @@ public:
         // Constructors and destructors
         PlayerStatsManager(std::string playerName): name(playerName) {} // Don't need const here because name is taken by value
         PlayerStatsManager() = delete; // can't init this with no name
-        ~PlayerStatsManager() = delete; // should work like this, no dynamic allocations
+        ~PlayerStatsManager() = default; // should work like this, no dynamic allocations
 
         //getters
         std::string getName() const;

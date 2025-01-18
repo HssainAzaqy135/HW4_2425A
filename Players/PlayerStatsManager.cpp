@@ -1,7 +1,3 @@
-//
-// Created by kingh on 18/01/2025.
-//
-
 #include "PlayerStatsManager.h"
 
 #include <stdexcept>
@@ -21,7 +17,10 @@ unsigned int PlayerStatsManager::getCurrentHp() const {
     return this->currentHp;
 }
 void PlayerStatsManager::setCurrentHp(unsigned int hp) {
-    this->currentHp = (this->maxHp < this->currentHp) ? this->maxHp : this->currentHp;
+    this->currentHp = (this->maxHp < hp) ? this->maxHp : hp;
+    if (this->currentHp == 0) {
+        this->playerKnockedOut();
+    }
 }
 bool PlayerStatsManager::isKnockedOut() const {
     return !(this->isAwake);
@@ -56,7 +55,7 @@ void PlayerStatsManager::takeDamage(unsigned int amount) {
     }
 
 }
-void PlayerStatsManager::loseForceBy(unsigned int amount) {
+void PlayerStatsManager::loseForceBy(unsigned int amount) { //more readable code
     this->force = (this->force < amount) ? 0 : (this->force - amount); // clamping with zero
 }
 void PlayerStatsManager::payCoins(unsigned int amount) {

@@ -2,11 +2,19 @@
 #pragma once
 
 #include <string>
+#include "PlayerStatsManager.h"
+#include <memory>
 
 using std::string;
+using std::unique_ptr;
 
 class Player {
+
 public:
+
+    unique_ptr<PlayerStatsManager> statsManager;
+
+    void initializePlayer();
     /**
      * Gets the description of the player
      *
