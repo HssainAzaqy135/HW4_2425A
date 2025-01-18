@@ -1,9 +1,8 @@
 #pragma once
 #include <string>
-#include "Player.h"
-
 using std::string;
 
+class Player; // pre declaring to solve include cycle instead of include
 class Character {
 
 protected:

@@ -2,8 +2,10 @@
 #pragma once
 
 #include <string>
-#include "PlayerStatsManager.h"
 #include <memory>
+#include "PlayerStatsManager.h"
+#include "Character.h"
+#include "Job.h"
 
 using std::string;
 using std::unique_ptr;
@@ -11,10 +13,19 @@ using std::unique_ptr;
 class Player {
 
 public:
-
+    static const int maxPlayerLevel = 10;
+    // ---------------- Public fields -----------------------------------
     unique_ptr<PlayerStatsManager> statsManager;
+    unique_ptr<Character> character;
+    // ---------------- Constructors and destructors --------------------
 
+    Player(const string &name, unique_ptr<Job> job, unique_ptr<Character> character); // Assume inputs are valid at this stage
+    ~Player() = default;
     void initializePlayer();
+
+
+
+    //---------------------- Assignment methods -----------------
     /**
      * Gets the description of the player
      *

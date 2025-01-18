@@ -1,8 +1,6 @@
-
 #include "Job.h"
+#include "Player.h"
 
-// add const
-// magic numbers
 
 string Job::getJob() const {
     return this->jobName;
@@ -17,13 +15,13 @@ unsigned int Warrior::computeCombatPower(Player& player) const {
 }
 
 void Warrior::postBattleImplications(Player& player) const {
-    player.statsManager->takeDamage(10);
+    player.statsManager->takeDamage(Warrior::winPenalty);
 }
 
 void Warrior::startGameAttributes(Player& player) const {
-    player.statsManager->setMaxHp(150);
+    player.statsManager->setMaxHp(Warrior::initialHp);
 }
 
 void Archer::startGameAttributes(Player& player) const {
-    player.statsManager->gainCoinsBy(10);
+    player.statsManager->gainCoinsBy(Archer::addedCoins);
 }

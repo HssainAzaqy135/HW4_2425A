@@ -2,6 +2,8 @@
 
 #include <stdexcept>
 
+#include "Player.h"
+
 //  ------------------- getters and setters --------------------------
 std::string PlayerStatsManager::getName() const {
     return this->name;
@@ -69,6 +71,7 @@ void PlayerStatsManager::payCoins(unsigned int amount) {
 
 void PlayerStatsManager::levelUp() {
     this->level += 1;
+    this->level = (this->level >= Player::maxPlayerLevel)? Player::maxPlayerLevel : this->level;
 }
 void PlayerStatsManager::playerKnockedOut() {
     this->isAwake = false;
