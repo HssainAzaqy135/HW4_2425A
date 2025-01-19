@@ -1,19 +1,22 @@
 #pragma once
 #include <string>
 
-const unsigned int MAX_HP = 100;
-
-// do this later...
 
 class PlayerStatsManager {
 private:
+        // ----------- Constants ------------
+        static const unsigned int INIT_MAX_HP = 100;
+        static const unsigned int INIT_LVL = 1;
+        static const unsigned int INIT_FORCE = 5;
+        static const unsigned int INIT_COINS = 10;
+        // ----------------------------------
         std::string name;
-        unsigned int maxHp = MAX_HP;
-        unsigned int currentHp = maxHp;
+        unsigned int maxHp = INIT_MAX_HP;
+        unsigned int currentHp = INIT_MAX_HP;
         bool isAwake = true; // inverting this for isKnockedOut()
-        unsigned int level = 1;
-        unsigned int force = 5;
-        unsigned int coins = 10;
+        unsigned int level = INIT_LVL;
+        unsigned int force = INIT_FORCE;
+        unsigned int coins = INIT_COINS;
 public:
         // Constructors and destructors
         PlayerStatsManager(std::string playerName): name(playerName) {} // Don't need const here because name is taken by value
