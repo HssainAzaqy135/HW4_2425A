@@ -12,4 +12,9 @@ add_executable(HW4_2425A
         Players/Job.h
         Players/Character.cpp
         Players/Character.h
+        Events/Event.h
+        Events/Monster.cpp
+        Events/Monster.h
+        Events/SpecialEvent.cpp
+        Events/SpecialEvent.h
 )

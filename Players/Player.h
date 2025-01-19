@@ -15,8 +15,9 @@ class Player {
 public:
     static const int maxPlayerLevel = 10;
     // ---------------- Public fields -----------------------------------
-    unique_ptr<PlayerStatsManager> statsManager;
+    unique_ptr<PlayerStatsManager> statsManager; // I don't think this need to be a unique pointer.
     unique_ptr<Character> character;
+    unique_ptr<Job> job; // added this, I think we forgot.
     // ---------------- Constructors and destructors --------------------
 
     Player(const string &name, unique_ptr<Job> job, unique_ptr<Character> character); // Assume inputs are valid at this stage

@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include "Monster.h"
 #include "../Players/Player.h"
 
 class Event {
@@ -12,3 +13,11 @@ public:
     */
     string getDescription() const;
 };
+
+class Encounter : public Event {
+    unique_ptr<Monster> monster;
+
+
+
+};
+
