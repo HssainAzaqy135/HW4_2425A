@@ -2,6 +2,7 @@
 #pragma once
 
 #include <string>
+#include <stdexcept>
 #include <memory>
 #include "PlayerStatsManager.h"
 #include "Character.h"
@@ -15,16 +16,15 @@ class Player {
 public:
     static const int maxPlayerLevel = 10;
     // ---------------- Public fields -----------------------------------
-    unique_ptr<PlayerStatsManager> statsManager; // I don't think this need to be a unique pointer.
+    string name;
+    unique_ptr<PlayerStatsManager> statsManager;
     unique_ptr<Character> character;
-    unique_ptr<Job> job; // added this, I think we forgot.
+    unique_ptr<Job> job;
     // ---------------- Constructors and destructors --------------------
 
-    Player(const string &name, unique_ptr<Job> job, unique_ptr<Character> character); // Assume inputs are valid at this stage
+    Player(const string name, unique_ptr<Job> job, unique_ptr<Character> character); // Assume inputs are valid at this stage
     ~Player() = default;
-    void initializePlayer();
-
-
+    Player() = delete;
 
     //---------------------- Assignment methods -----------------
     /**

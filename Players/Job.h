@@ -20,8 +20,9 @@ public:
 
 class Warrior : public Job {
     string jobName;
-    static const unsigned int initialHp = 150;
-    static const unsigned int winPenalty = 10;
+    static const unsigned int INITIAL_HP = 150;
+    static const unsigned int WIN_PENALTY = 10;
+    static const unsigned int FORCE_MULT = 2;
 public:
     // ------------------ Constructors -----------------------
     Warrior() : Job("Warrior") {}
@@ -33,7 +34,7 @@ public:
 
 class Archer : public Job {
     string jobName;
-    static const unsigned int addedCoins = 10;
+    static const unsigned int ADDED_COINS = 10;
 public:
     // ------------------ Constructors -----------------------
     Archer() : Job("Archer") {}

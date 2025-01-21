@@ -5,9 +5,6 @@
 #include "Player.h"
 
 //  ------------------- getters and setters --------------------------
-std::string PlayerStatsManager::getName() const {
-    return this->name;
-}
 unsigned int PlayerStatsManager::getMaxHp() const {
     return this->maxHp;
 }
