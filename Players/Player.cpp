@@ -10,14 +10,13 @@ Player::Player(const std::string name, std::unique_ptr<Job> job, std::unique_ptr
 }
 
 string Player::getDescription() const {
-    string nameString, jobString, characterString, levelString, forceString;
-    nameString = this->name;
-    levelString = std::to_string(this->getLevel());
-    forceString = std::to_string((this->getForce()));
-    jobString = this->job->getJob();
-    characterString = this->character->getBehavior();
-    string stringToPrint = nameString + ", " + jobString + " with " + characterString + " character (level "
-           + levelString + ", force " + forceString + ")";
+    string stringOfName = this->name;
+    string stringOfLevel = std::to_string(this->getLevel());
+    string stringOfForce = std::to_string((this->getForce()));
+    string stringOfJob = this->job->getJob();
+    string stringOfCharacter = this->character->getBehavior();
+    string stringToPrint = stringOfName + ", " + stringOfJob + " with " + stringOfCharacter + " character (level "
+           + stringOfLevel + ", force " + stringOfForce + ")";
     return stringToPrint;
 }
 
