@@ -14,7 +14,7 @@ unsigned int Warrior::computeCombatPower(Player& player) const {
     return Job::computeCombatPower(player) + player.statsManager->getForce() * Warrior::FORCE_MULT;
 }
 
-void Warrior::postBattleImplications(Player& player) const {
+void Warrior::postWinImplications(Player& player) const {
     player.statsManager->takeDamage(Warrior::WIN_PENALTY);
 }
 

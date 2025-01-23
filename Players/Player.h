@@ -14,6 +14,10 @@ using std::unique_ptr;
 class Player {
 
 public:
+    static const unsigned int POTION_PRICE = 5;
+    static const unsigned int POTION_HEAL = 10;
+    static const unsigned int RISKY_HEAL_THRESHOLD = 50;
+
     static const int maxPlayerLevel = 10;
     // ---------------- Public fields -----------------------------------
     string name;

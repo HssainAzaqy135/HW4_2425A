@@ -3,6 +3,7 @@
 
 #include "Monster.h"
 #include "../Players/Player.h"
+#include "../Utilities.h"
 
 class Event {
 public:
@@ -11,13 +12,9 @@ public:
      *
      * @return - the description of the event
     */
-    string getDescription() const;
-};
-
-class Encounter : public Event {
-    unique_ptr<Monster> monster;
-
-
+    virtual string getDescription() const = 0;
+    virtual string playEvent(Player& player) = 0;
 
 };
+
 

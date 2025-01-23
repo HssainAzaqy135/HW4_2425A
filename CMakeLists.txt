@@ -22,4 +22,7 @@ add_executable(HW4_2425A
         Events/ItemFactory.h
         Events/MonsterStatsManager.cpp
         Events/MonsterStatsManager.h
+        Events/Event.cpp
+        Events/Encounter.cpp
+        Events/Encounter.h
 )

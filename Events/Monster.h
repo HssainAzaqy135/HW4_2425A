@@ -8,20 +8,23 @@
 class Monster {
 
 protected:
+    static std::string formatStatsHelper(unsigned int CombatPower, unsigned int Loot, unsigned int Damage);
     std::unique_ptr<MonsterStatsManager> statsManager;
     std::string Name;
 
     Monster(unsigned int CombatPower, unsigned int Loot, unsigned int Damage);
 
-
 public:
+    Monster() = delete;
     virtual ~Monster() = default;
 
     virtual unsigned int getCombatPower() const;
     virtual unsigned int getLoot() const;
     virtual unsigned int getDamage() const;
     virtual void applyPostEncounterChanges();
+
     std::string getName() const;
+    virtual std::string getEncounterString() const;
 };
 
 class Snail : public Monster {
@@ -77,5 +80,6 @@ public:
     unsigned int getLoot() const override;
     unsigned int getDamage() const override;
     void applyPostEncounterChanges() override;
+    virtual std::string getEncounterString() const override;
     unsigned int getPackSize() const;
 };

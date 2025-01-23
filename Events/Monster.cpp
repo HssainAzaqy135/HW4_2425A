@@ -19,8 +19,23 @@ void Monster::applyPostEncounterChanges() {
 
 }
 
+std::string Monster::formatStatsHelper(unsigned int CombatPower, unsigned int Loot, unsigned int Damage) {
+    std::string monsterStats = "(power " + std::to_string(CombatPower) +
+                               ", loot " + std::to_string(Loot) +
+                               ", damage " + std::to_string(Damage) + ")";
+    return monsterStats;
+}
+
 Monster::Monster(unsigned int CombatPower, unsigned int Loot, unsigned int Damage)
         : statsManager(std::make_unique<MonsterStatsManager>(CombatPower, Loot, Damage)) {}
+
+std::string Monster::getEncounterString() const {
+    std::string retString;
+    std::string statsString = Monster::formatStatsHelper(this->statsManager->getCombatPower(),
+                                                         this->statsManager->getLoot(),this->statsManager->getDamage());
+    retString = this->getName() + " " + statsString;
+    return  retString;
+}
 
 // Specific implementations
 unsigned int Balrog::getCombatPower() const  {
@@ -65,5 +80,14 @@ unsigned int Pack::getPackSize() const {
     return total_pack_size;
 }
 
-Pack::Pack(std::vector<std::unique_ptr<Monster>> monsters) :Monster(0,0,0),
-packMonsters(std::move(monsters)) {}
+Pack::Pack(std::vector<std::unique_ptr<Monster>> monsters) :Monster(0,0,0)//not relevant here
+,packMonsters(std::move(monsters)) {
+}
+
+std::string Pack::getEncounterString() const {
+    std::string retString;
+    std::string statsString = Monster::formatStatsHelper(this->getCombatPower(), this->getLoot(), this->getDamage());
+    std::string packAddedString = "of " + std::to_string(this->getPackSize()) + " " + "members";
+    retString = this->getName() + " " + packAddedString + " " + statsString;
+    return retString;
+}

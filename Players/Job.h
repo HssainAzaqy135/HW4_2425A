@@ -14,7 +14,7 @@ public:
 
     string getJob() const;
     virtual unsigned int computeCombatPower(Player& player) const;
-    virtual void postBattleImplications() const {};
+    virtual void postWinImplications(Player& player) const {};
     virtual void startGameAttributes(Player& player) const {};
 };
 
@@ -28,7 +28,7 @@ public:
     Warrior() : Job("Warrior") {}
     // ------------------ Methods ----------------------------
     unsigned int computeCombatPower(Player& player) const override;
-    void postBattleImplications(Player& player) const;
+    void postWinImplications(Player& player) const override;
     void startGameAttributes(Player& player) const override;
 };
 
