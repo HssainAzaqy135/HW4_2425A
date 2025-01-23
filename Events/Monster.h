@@ -1,24 +1,21 @@
 #pragma once
 #include <memory>
 #include <vector>
+#include <string>
 
-
-
-
+#include "MonsterStatsManager.h"
 
 class Monster {
 
 protected:
-    unsigned int CombatPower;
-    unsigned int Loot;
-    unsigned int Damage;
+    std::unique_ptr<MonsterStatsManager> statsManager;
     std::string Name;
 
     Monster(unsigned int CombatPower, unsigned int Loot, unsigned int Damage);
 
 
 public:
-    virtual ~Monster();
+    virtual ~Monster() = default;
 
     virtual unsigned int getCombatPower() const;
     virtual unsigned int getLoot() const;

@@ -2,15 +2,15 @@
 #include "Monster.h"
 
 unsigned int Monster::getCombatPower() const{
-    return this->CombatPower;
+    return this->statsManager->getCombatPower();
 }
 
 unsigned int Monster::getLoot() const {
-    return this->Loot;
+    return this->statsManager->getLoot();
 }
 
 unsigned int Monster::getDamage() const{
-    return this->Damage;
+    return this->statsManager->getDamage();
 }
 std::string Monster::getName() const {
     return this->Name;
@@ -18,6 +18,10 @@ std::string Monster::getName() const {
 void Monster::applyPostEncounterChanges() {
 
 }
+
+Monster::Monster(unsigned int CombatPower, unsigned int Loot, unsigned int Damage)
+        : statsManager(std::make_unique<MonsterStatsManager>(CombatPower, Loot, Damage)) {}
+
 // Specific implementations
 unsigned int Balrog::getCombatPower() const  {
     return Balrog::BALROG_COMBAT_POWER + this->num_encounters * Balrog::BALROG_STRENGTH_MULTIPLIER;
