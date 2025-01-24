@@ -54,7 +54,7 @@ private:
         {"Snail", [](std::istream &) { return std::make_unique<Snail>(); }},
         {"Slime", [](std::istream &) { return std::make_unique<Slime>(); }},
         {"Balrog", [](std::istream &) { return std::make_unique<Balrog>(); }},
-        {"Pack", [](std::istream &stream) { return makePack(stream);/* special case, need the rest of the stream */ }}
+        {"Pack", [this](std::istream &stream) { return this->makePack(stream);/* special case, need the rest of the stream */ }}
     };
 public:
     ItemFactory() = default;

@@ -83,7 +83,7 @@ std::unique_ptr<Monster> ItemFactory::makePack(istream &stream) {
     }catch(...){
         throw std::runtime_error("Invalid Events File");
     }
-    if(size <= MIN_PACK_SIZE){
+    if(size < MIN_PACK_SIZE){
         throw std::runtime_error("Invalid Events File");
     }
     // ALL good, make the pack
