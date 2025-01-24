@@ -12,7 +12,7 @@
 #include "SpecialEvent.h"
 
 // Include for mapping strings to constructors
-#include "algorithm";
+#include <algorithm>
 #include <unordered_map>
 #include <functional>
 
@@ -24,6 +24,9 @@ using std::vector;
 
 class ItemFactory {
 private:
+    const unsigned int MIN_PLAYER_NAME_LEN = 3;
+    const unsigned int MAX_PLAYER_NAME_LEN = 15;
+
     const unsigned int MIN_PLAYERS = 2;
     const unsigned int MAX_PLAYERS = 6;
     bool playerParametersCheck(string name,string job, string character)const;
@@ -38,8 +41,11 @@ private:
     };
 
 
-    static std::unique_ptr<Monster> makePack(std::istream &stream);
-    const std::unordered_map<std::string, std::function<std::unique_ptr<Event>()>> eventsMap = {
+    static const unsigned int MIN_EVENTS_NUM = 2;
+    static const unsigned int MIN_PACK_SIZE = 2;
+
+    std::unique_ptr<Monster> makePack(std::istream &stream);
+    const std::unordered_map<std::string, std::function<std::unique_ptr<Event>()>> specialEventsMap = {
         {"SolarEclipse", []() { return std::make_unique<SolarEclipse>(); }},
         {"PotionsMerchant", []() { return std::make_unique<PotionsMerchant>(); }},
     };
@@ -56,6 +62,6 @@ public:
 
     // Creation functions
     std::vector<unique_ptr<Player>> createPlayers(istream& playersStream) const;
-    std::vector<unique_ptr<Event>> createEvents(istream& eventsStream) const; // handel pack case?
+    std::vector<unique_ptr<Event>> createEvents(istream& eventsStream) const;
 };
 

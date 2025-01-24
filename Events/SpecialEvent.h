@@ -15,5 +15,6 @@ class SolarEclipse : public SpecialEvent {
 };
 
 class PotionsMerchant : public SpecialEvent {
+
     virtual string playEvent(Player& player) override;
 };

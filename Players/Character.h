@@ -16,11 +16,13 @@ public:
 };
 
 class Responsible : public Character {
+public:
     ~Responsible() override = default;
     unsigned int maxBuyablePotions(const Player& player) const override;
 };
 
 class RiskTaking : public Character {
+public:
     ~RiskTaking() override = default;
     unsigned int maxBuyablePotions(const Player& player) const override;
 };
