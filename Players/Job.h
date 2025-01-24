@@ -16,6 +16,7 @@ public:
     virtual unsigned int computeCombatPower(Player& player) const;
     virtual void postWinImplications(Player& player) const {};
     virtual void startGameAttributes(Player& player) const {};
+    virtual void postSolarEclipseImplications(Player& player) const;
 };
 
 class Warrior : public Job {
@@ -48,4 +49,6 @@ public:
     // ------------------ Constructors -----------------------
     Magician() : Job("Magician") {}
     // Effectively default
+    // ------------------ Methods ----------------------------
+    void postSolarEclipseImplications(Player& player) const override;
 };

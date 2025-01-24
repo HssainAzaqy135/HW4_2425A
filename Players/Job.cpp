@@ -10,6 +10,10 @@ unsigned int Job::computeCombatPower(Player& player) const {
     return player.statsManager->getForce() + player.statsManager->getLevel();
 }
 
+void Job::postSolarEclipseImplications(Player &player) const {
+    player.statsManager->loseForceBy(1); //add const
+}
+
 unsigned int Warrior::computeCombatPower(Player& player) const {
     return Job::computeCombatPower(player) + player.statsManager->getForce() * Warrior::FORCE_MULT;
 }
@@ -25,4 +29,8 @@ void Warrior::startGameAttributes(Player& player) const {
 
 void Archer::startGameAttributes(Player& player) const {
     player.statsManager->gainCoinsBy(Archer::ADDED_COINS);
+}
+
+void Magician::postSolarEclipseImplications(Player &player) const {
+    player.statsManager->gainForceBy(1); //add const
 }
