@@ -1,8 +1,6 @@
-//
-// Created by areg1 on 1/23/2025.
-//
 
 #include "ItemFactory.h"
+
 // Player Making
 
 using std::find;
@@ -14,11 +12,11 @@ bool ItemFactory::playerParametersCheck(string name, string job, string characte
         return false;
     }
     // job check
-    if(jobMakingFunctions.find(job) != jobMakingFunctions.end()) {
+    if(jobMakingFunctions.find(job) == jobMakingFunctions.end()) { // changed to ==, was !=, I think that was a mistake, not sure
         return false;
     }
     // character check
-    if(characterMakingFunctions.find(character) != characterMakingFunctions.end()) {
+    if(characterMakingFunctions.find(character) == characterMakingFunctions.end()) { // same here
         return false;
     }
     return true;
@@ -29,10 +27,7 @@ std::vector<unique_ptr<Player>> ItemFactory::createPlayers(istream &playersStrea
     string playerName;
     string characterName;
     string jobName;
-    playersStream >> playerName;
-    while(playerName.data()) {
-        playersStream >> jobName;
-        playersStream >> characterName;
+    while(playersStream >> playerName >> jobName >> characterName) { // fixed this issue (we didn't include <iostream> hehe...)
         if(!playerParametersCheck(playerName, jobName, characterName)) {
             throw std::runtime_error("Invalid Players File");
         }
@@ -40,8 +35,6 @@ std::vector<unique_ptr<Player>> ItemFactory::createPlayers(istream &playersStrea
         std::unique_ptr<Job> job = jobMakingFunctions.at(jobName)();
         std::unique_ptr<Character> character = characterMakingFunctions.at(characterName)();
         players.push_back(std::make_unique<Player>(playerName, std::move(job), std::move(character)));
-        // next name
-        playersStream >> playerName;
     }
     // Check if too many players
     if(players.size() < MIN_PLAYERS || players.size() > MAX_PLAYERS) {
@@ -55,16 +48,14 @@ std::vector<unique_ptr<Player>> ItemFactory::createPlayers(istream &playersStrea
 std::vector<unique_ptr<Event>> ItemFactory::createEvents(istream &eventsStream) const {
     std::vector<unique_ptr<Event>> events;
     string eventName;
-    eventsStream >> eventName;
-    while (eventName.data()) {
-        if (specialEventsMap.find(eventName) == specialEventsMap.end()) { //encounter
-            std::unique_ptr<Monster> monster_ptr = monstersMap.at(eventName)(eventsStream);
+
+    while (eventsStream >> eventName) {
+        if (specialEventsMakingFunctions.find(eventName) == specialEventsMakingFunctions.end()) { //encounter
+            std::unique_ptr<Monster> monster_ptr = monstersMakingFunctions.at(eventName)(eventsStream);
             events.push_back(std::make_unique<Encounter>(std::move(monster_ptr)));
         } else {
-            events.push_back(specialEventsMap.at(eventName)());
+            events.push_back(specialEventsMakingFunctions.at(eventName)());
         }
-
-        eventsStream >> eventName;
     }
     if(events.size() < MIN_EVENTS_NUM){
         throw std::runtime_error("Invalid Events File");
@@ -90,10 +81,10 @@ std::unique_ptr<Monster> ItemFactory::makePack(istream &stream) {
     string currMonsterName;
     for (int i = 0; i < size; ++i) {
         stream >> currMonsterName;
-        if(!currMonsterName.data()){
+        if(currMonsterName.empty()){ // changed this as well
             throw std::runtime_error("Invalid Events File");
         }else{
-            monstersVector.push_back(monstersMap.at(currMonsterName)(stream));
+            monstersVector.push_back(monstersMakingFunctions.at(currMonsterName)(stream));
         }
     }
 

@@ -3,7 +3,6 @@
 //
 #pragma once
 
-#include <memory>
 #include "../Players/Player.h"
 #include "../Players/Character.h"
 #include "../Players/Job.h"
@@ -12,6 +11,8 @@
 #include "SpecialEvent.h"
 
 // Include for mapping strings to constructors
+#include <iostream>
+#include <memory>
 #include <algorithm>
 #include <unordered_map>
 #include <functional>
@@ -29,6 +30,7 @@ private:
 
     const unsigned int MIN_PLAYERS = 2;
     const unsigned int MAX_PLAYERS = 6;
+
     bool playerParametersCheck(string name,string job, string character)const;
     const std::unordered_map<std::string, std::function<std::unique_ptr<Job>()>> jobMakingFunctions = {
         {"Warrior", []() { return std::make_unique<Warrior>(); }},
@@ -45,12 +47,12 @@ private:
     static const unsigned int MIN_PACK_SIZE = 2;
 
     std::unique_ptr<Monster> makePack(std::istream &stream);
-    const std::unordered_map<std::string, std::function<std::unique_ptr<Event>()>> specialEventsMap = {
+    const std::unordered_map<std::string, std::function<std::unique_ptr<Event>()>> specialEventsMakingFunctions = {
         {"SolarEclipse", []() { return std::make_unique<SolarEclipse>(); }},
         {"PotionsMerchant", []() { return std::make_unique<PotionsMerchant>(); }},
     };
 
-    const std::unordered_map<std::string, std::function<std::unique_ptr<Monster>(std::istream &)>> monstersMap = {
+    const std::unordered_map<std::string, std::function<std::unique_ptr<Monster>(std::istream &)>> monstersMakingFunctions = {
         {"Snail", [](std::istream &) { return std::make_unique<Snail>(); }},
         {"Slime", [](std::istream &) { return std::make_unique<Slime>(); }},
         {"Balrog", [](std::istream &) { return std::make_unique<Balrog>(); }},
