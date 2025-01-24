@@ -8,6 +8,7 @@ using std::string;
 class Job {
 private:
     string jobName;
+    static const int BASE_SOLAR_ECLIPSE_DEBUFF = 1;
 public:
     Job(const string& name) : jobName(name) {}
     virtual ~Job() = default;
@@ -16,7 +17,7 @@ public:
     virtual unsigned int computeCombatPower(Player& player) const;
     virtual void postWinImplications(Player& player) const {};
     virtual void startGameAttributes(Player& player) const {};
-    virtual void postSolarEclipseImplications(Player& player) const;
+    virtual int postSolarEclipseImplications(Player& player) const;
 };
 
 class Warrior : public Job {
@@ -45,10 +46,11 @@ public:
 
 class Magician : public Job {
     string jobName;
+    static const int MAGICIAN_SOLAR_ECLIPSE_BUFF = 1;
 public:
     // ------------------ Constructors -----------------------
     Magician() : Job("Magician") {}
     // Effectively default
     // ------------------ Methods ----------------------------
-    void postSolarEclipseImplications(Player& player) const override;
+    int postSolarEclipseImplications(Player& player) const override;
 };

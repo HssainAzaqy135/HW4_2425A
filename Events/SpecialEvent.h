@@ -4,7 +4,6 @@
 
 class SpecialEvent : public Event {
 protected:
-    //add const for lose force
     string description;
 
 public:

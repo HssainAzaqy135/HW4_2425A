@@ -18,6 +18,9 @@ std::string Monster::getName() const {
 void Monster::applyPostEncounterChanges() {
 
 }
+unsigned int Monster::MonsterCount() const {
+    return 1; //base behaviour for a non pack monster
+}
 
 std::string Monster::formatStatsHelper(unsigned int CombatPower, unsigned int Loot, unsigned int Damage) {
     std::string monsterStats = "(power " + std::to_string(CombatPower) +
@@ -75,8 +78,11 @@ void Pack::applyPostEncounterChanges() {
     }
 }
 
-unsigned int Pack::getPackSize() const {
-    unsigned int total_pack_size = this->packMonsters.size();
+unsigned int Pack::MonsterCount() const {
+    unsigned int total_pack_size = 0;
+    for (const std::unique_ptr<Monster> &monster : this->packMonsters) {
+        total_pack_size += monster->MonsterCount();
+    }
     return total_pack_size;
 }
 
@@ -87,7 +93,7 @@ Pack::Pack(std::vector<std::unique_ptr<Monster>> monsters) :Monster(0,0,0)//not 
 std::string Pack::getEncounterString() const {
     std::string retString;
     std::string statsString = Monster::formatStatsHelper(this->getCombatPower(), this->getLoot(), this->getDamage());
-    std::string packAddedString = "of " + std::to_string(this->getPackSize()) + " " + "members";
+    std::string packAddedString = "of " + std::to_string(this->MonsterCount()) + " " + "members";
     retString = this->getName() + " " + packAddedString + " " + statsString;
     return retString;
 }

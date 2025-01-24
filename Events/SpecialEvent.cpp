@@ -6,9 +6,7 @@ string SpecialEvent::getDescription() const {
 }
 
 string SolarEclipse::playEvent(Player &player) {
-    int effect;
-    // player.job.handleSolarEclipseEvent()
-
+    int effect = player.job->postSolarEclipseImplications(player);
     return getSolarEclipseMessage(player, effect);
 }
 

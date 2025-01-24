@@ -25,6 +25,7 @@ public:
 
     std::string getName() const;
     virtual std::string getEncounterString() const;
+    virtual unsigned int MonsterCount() const;
 };
 
 class Snail : public Monster {
@@ -81,5 +82,5 @@ public:
     unsigned int getDamage() const override;
     void applyPostEncounterChanges() override;
     virtual std::string getEncounterString() const override;
-    unsigned int getPackSize() const;
+    unsigned int MonsterCount() const override;
 };
