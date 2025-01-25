@@ -4,6 +4,9 @@ project(HW4_2425A)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(HW4_2425A
+        OurMain.cpp
+        Utilities.h
+        Utilities.cpp
         Players/PlayerStatsManager.cpp
         Players/PlayerStatsManager.h
         Players/Player.h
@@ -12,6 +15,7 @@ add_executable(HW4_2425A
         Players/Character.cpp
         Players/Character.h
         Events/Event.h
+        Events/Event.cpp
         Events/Monster.cpp
         Events/Monster.h
         Events/SpecialEvent.cpp
@@ -21,7 +25,6 @@ add_executable(HW4_2425A
         Events/ItemFactory.h
         Events/MonsterStatsManager.cpp
         Events/MonsterStatsManager.h
-        Events/Event.cpp
         Events/Encounter.cpp
         Events/Encounter.h
         MatamStory.h

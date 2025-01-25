@@ -2,6 +2,7 @@
 #pragma once
 
 #include "Event.h"
+#include "../Utilities.h"
 
 class Encounter : public Event {
     unique_ptr<Monster> monster;

@@ -14,7 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <algorithm>
-#include <unordered_map>
+#include <map>
 #include <functional>
 
 
@@ -32,12 +32,12 @@ private:
     const unsigned int MAX_PLAYERS = 6;
 
     bool playerParametersCheck(string name,string job, string character)const;
-    const std::unordered_map<std::string, std::function<std::unique_ptr<Job>()>> jobMakingFunctions = {
+    const std::map<std::string, std::function<std::unique_ptr<Job>()>> jobMakingFunctions = {
         {"Warrior", []() { return std::make_unique<Warrior>(); }},
         {"Magician", []() { return std::make_unique<Magician>(); }},
         {"Archer", []() { return std::make_unique<Archer>(); }}
     };
-    const std::unordered_map<std::string, std::function<std::unique_ptr<Character>()>> characterMakingFunctions = {
+    const std::map<std::string, std::function<std::unique_ptr<Character>()>> characterMakingFunctions = {
         {"Responsible", []() { return std::make_unique<Responsible>(); }},
         {"RiskTaking", []() { return std::make_unique<RiskTaking>(); }}
     };
@@ -46,17 +46,17 @@ private:
     static const unsigned int MIN_EVENTS_NUM = 2;
     static const unsigned int MIN_PACK_SIZE = 2;
 
-    std::unique_ptr<Monster> makePack(std::istream &stream);
-    const std::unordered_map<std::string, std::function<std::unique_ptr<Event>()>> specialEventsMakingFunctions = {
+    std::unique_ptr<Monster> makePack(istream &stream);
+    const std::map<std::string, std::function<std::unique_ptr<Event>()>> specialEventsMakingFunctions = {
         {"SolarEclipse", []() { return std::make_unique<SolarEclipse>(); }},
         {"PotionsMerchant", []() { return std::make_unique<PotionsMerchant>(); }},
     };
 
-    const std::unordered_map<std::string, std::function<std::unique_ptr<Monster>(std::istream &)>> monstersMakingFunctions = {
-        {"Snail", [](std::istream &) { return std::make_unique<Snail>(); }},
-        {"Slime", [](std::istream &) { return std::make_unique<Slime>(); }},
-        {"Balrog", [](std::istream &) { return std::make_unique<Balrog>(); }},
-        {"Pack", [this](std::istream &stream) { return this->makePack(stream);/* special case, need the rest of the stream */ }}
+    const std::map<std::string, std::function<std::unique_ptr<Monster>(istream &)>> monstersMakingFunctions = {
+        {"Snail", [](istream &) { return std::make_unique<Snail>(); }},
+        {"Slime", [](istream &) { return std::make_unique<Slime>(); }},
+        {"Balrog", [](istream &) { return std::make_unique<Balrog>(); }},
+        {"Pack", [this](istream &stream) { return makePack(stream);/* special case, need the rest of the stream */ }}
     };
 public:
     ItemFactory() = default;

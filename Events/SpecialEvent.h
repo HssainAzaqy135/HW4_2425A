@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Event.h"
+#include "../Utilities.h"
 
 class SpecialEvent : public Event {
 protected:
