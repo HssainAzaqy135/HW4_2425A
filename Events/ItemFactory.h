@@ -19,6 +19,7 @@
 
 
 using std::unique_ptr;
+using std::shared_ptr;
 using std::string;
 using std::istream;
 using std::vector;
@@ -46,7 +47,7 @@ private:
     static const unsigned int MIN_EVENTS_NUM = 2;
     static const unsigned int MIN_PACK_SIZE = 2;
 
-    std::unique_ptr<Monster> makePack(istream &stream);
+    std::unique_ptr<Monster> makePack(istream &stream) const;
     const std::map<std::string, std::function<std::unique_ptr<Event>()>> specialEventsMakingFunctions = {
         {"SolarEclipse", []() { return std::make_unique<SolarEclipse>(); }},
         {"PotionsMerchant", []() { return std::make_unique<PotionsMerchant>(); }},
@@ -63,7 +64,7 @@ public:
     ~ItemFactory() = default;
 
     // Creation functions
-    std::vector<unique_ptr<Player>> createPlayers(istream& playersStream) const;
+    std::vector<shared_ptr<Player>> createPlayers(istream& playersStream) const;
     std::vector<unique_ptr<Event>> createEvents(istream& eventsStream) const;
 };
 

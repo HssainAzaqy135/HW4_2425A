@@ -1,16 +1,29 @@
 
 #pragma once
 
-#include <iostream>
-
+#include "Events/ItemFactory.h"
 #include "Players/Player.h"
 #include "Events/Event.h"
+#include <vector>
+#include <memory>
+#include <iostream>
+#include <string>
+#include <algorithm>
 
+using std::string;
+using std::unique_ptr;
+using std::shared_ptr;
+using std::vector;
 
 class MatamStory{
 private:
     unsigned int m_turnIndex;
+    vector<shared_ptr<Player>> players;
+    vector<unique_ptr<Event>> events;
+    vector<unique_ptr<Event>>::iterator currentEvent;
+    unique_ptr<ItemFactory> factory;
 
+    void printSortedLeaderBoardEntries() const;
     /**
      * Playes a single turn for a player
      *

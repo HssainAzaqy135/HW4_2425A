@@ -22,8 +22,8 @@ bool ItemFactory::playerParametersCheck(string name, string job, string characte
     return true;
 }
 
-std::vector<unique_ptr<Player>> ItemFactory::createPlayers(istream &playersStream) const {
-    std::vector<unique_ptr<Player>> players;
+std::vector<shared_ptr<Player>> ItemFactory::createPlayers(istream &playersStream) const {
+    std::vector<shared_ptr<Player>> players;
     string playerName;
     string characterName;
     string jobName;
@@ -34,7 +34,7 @@ std::vector<unique_ptr<Player>> ItemFactory::createPlayers(istream &playersStrea
         // All valid, now make stuff
         std::unique_ptr<Job> job = jobMakingFunctions.at(jobName)();
         std::unique_ptr<Character> character = characterMakingFunctions.at(characterName)();
-        players.push_back(std::make_unique<Player>(playerName, std::move(job), std::move(character)));
+        players.push_back(std::make_shared<Player>(playerName, std::move(job), std::move(character)));
     }
     // Check if too many players
     if(players.size() < MIN_PLAYERS || players.size() > MAX_PLAYERS) {
@@ -63,7 +63,7 @@ std::vector<unique_ptr<Event>> ItemFactory::createEvents(istream &eventsStream) 
     return events;
 }
 
-std::unique_ptr<Monster> ItemFactory::makePack(istream &stream) {
+std::unique_ptr<Monster> ItemFactory::makePack(istream &stream) const {
     std::vector<std::unique_ptr<Monster>> monstersVector;
     //validity check
     unsigned int size;
@@ -87,6 +87,5 @@ std::unique_ptr<Monster> ItemFactory::makePack(istream &stream) {
             monstersVector.push_back(monstersMakingFunctions.at(currMonsterName)(stream));
         }
     }
-
     return std::make_unique<Pack>(std::move(monstersVector));
 }
