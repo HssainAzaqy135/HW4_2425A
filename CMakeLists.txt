@@ -15,7 +15,6 @@ add_executable(HW4_2425A
         Players/Character.cpp
         Players/Character.h
         Events/Event.h
-        Events/Event.cpp
         Events/Monster.cpp
         Events/Monster.h
         Events/SpecialEvent.cpp

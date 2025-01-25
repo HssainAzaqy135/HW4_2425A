@@ -22,8 +22,8 @@ private:
     vector<unique_ptr<Event>> events;
     vector<unique_ptr<Event>>::iterator currentEvent;
     unique_ptr<ItemFactory> factory;
-
     void printSortedLeaderBoardEntries() const;
+    vector<shared_ptr<Player>> getSortedPlayers() const;
     /**
      * Playes a single turn for a player
      *

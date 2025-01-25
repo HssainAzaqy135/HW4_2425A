@@ -11,6 +11,7 @@ MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) 
     } catch (...) {
         throw std::runtime_error("Invalid Events File");
     }
+    this->currentEvent = this->events.begin(); // to be cyclically reset to events. begin when reaching end
     /*==========================================*/
 
     /*===== TODO: Open and Read players file =====*/
@@ -19,7 +20,6 @@ MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) 
     } catch (...) {
         throw std::runtime_error("Invalid Players File");
     }
-    this->currentEvent = this->events.begin(); // to be cyclically reset to events. begin when reaching end
     /*============================================*/
 
     this->m_turnIndex = 1;
@@ -37,6 +37,7 @@ void MatamStory::playTurn(Player& player) {
 
     printTurnDetails(m_turnIndex,player,*(*(this->currentEvent)));
     string eventOutcome = (*(this->currentEvent))->playEvent(player);
+    printTurnOutcome(eventOutcome);
     // ----------------
     this->currentEvent++;
     if (this->currentEvent == events.end()) {
@@ -46,22 +47,36 @@ void MatamStory::playTurn(Player& player) {
 }
 
 // helpers for play round
-bool playersOrder(Player& player1, Player& player2) {
-    // TODO: Implement
-    return true;
+std::vector<std::shared_ptr<Player>> MatamStory::getSortedPlayers() const {
+    std::vector<std::shared_ptr<Player>> sortedPlayers = this->players;
+
+    std::sort(sortedPlayers.begin(), sortedPlayers.end(),
+        [](const std::shared_ptr<Player>& player1, const std::shared_ptr<Player>& player2) {
+            if (player1->statsManager->getLevel() > player2->statsManager->getLevel()) {
+                return true;
+            }
+            if (player1->statsManager->getLevel() < player2->statsManager->getLevel()) {
+                return false;
+            }
+            if (player1->statsManager->getCoins() > player2->statsManager->getCoins()) {
+                return true;
+            }
+            if (player1->statsManager->getCoins() < player2->statsManager->getCoins()) {
+                return false;
+            }
+            return player1->getName() < player2->getName();
+        });
+
+    return sortedPlayers;
 }
 
+
+
 void MatamStory::printSortedLeaderBoardEntries() const {
-    vector<shared_ptr<Player>> sortedPlayers;
-    // copying and sorting , can't sort locally since it would change players turns
-    for (const shared_ptr<Player> &player : players) {
-        sortedPlayers.push_back(player);
-    }
-    std::sort(sortedPlayers.begin(), sortedPlayers.end(), playersOrder);
+    vector<shared_ptr<Player>> sortedPlayers = this->getSortedPlayers();
     for (size_t i = 0; i < sortedPlayers.size(); ++i) {
         printLeaderBoardEntry(i + 1, *sortedPlayers[i]);
     }
-
 }
 void MatamStory::playRound() {
 
@@ -69,10 +84,8 @@ void MatamStory::playRound() {
 
     /*===== TODO: Play a turn for each player =====*/
     for(shared_ptr<Player> player: this->players) {
-        if(!player->statsManager->isKnockedOut()) {
+        if(!player->statsManager->isKnockedOut()) { // play only if not Knocked out
             playTurn(*player);
-        }else {
-            continue;
         }
     }
     /*=============================================*/
@@ -91,14 +104,31 @@ void MatamStory::playRound() {
 
 bool MatamStory::isGameOver() const {
     /*===== TODO: Implement the game over condition =====*/
-    return false; // Replace this line
+    unsigned int knockedOutPlayersCount = 0;
+    for (const shared_ptr<Player>& player : this->players) {
+        if(player->statsManager->getLevel() == Player::maxPlayerLevel) {
+            return true;
+        }
+    }
+    for (const shared_ptr<Player>& player : this->players) {
+        if(player->statsManager->isKnockedOut()) {
+            knockedOutPlayersCount++;
+        }
+    }
+    if(knockedOutPlayersCount == players.size()) {
+        return true;
+    }
+    return false;
+
     /*===================================================*/
 }
 
 void MatamStory::play() {
     printStartMessage();
     /*===== TODO: Print start message entry for each player using "printStartPlayerEntry" =====*/
-
+    for (unsigned int i = 0; i < this->players.size(); ++i) {
+        printStartPlayerEntry(i+1, *(this->players[i]));
+    }
     /*=========================================================================================*/
     printBarrier();
 
@@ -108,6 +138,11 @@ void MatamStory::play() {
 
     printGameOver();
     /*===== TODO: Print either a "winner" message or "no winner" message =====*/
-
+    vector<shared_ptr<Player>> sortedPlayers = this->getSortedPlayers();
+    if(sortedPlayers[0]->statsManager->getLevel() != Player::maxPlayerLevel) {
+        printNoWinners();
+    }else {
+        printWinner(*(sortedPlayers[0]));
+    }
     /*========================================================================*/
 }
