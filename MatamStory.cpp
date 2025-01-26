@@ -64,26 +64,25 @@ std::vector<std::shared_ptr<Player>> MatamStory::getSortedPlayers() const {
             if (player1->statsManager->getCoins() < player2->statsManager->getCoins()) {
                 return false;
             }
-            return player1->getName() < player2->getName();
+            return player1->getName() < player2->getName(); // strings have built in "<" operator
         });
 
     return sortedPlayers;
 }
 
-
-
 void MatamStory::printSortedLeaderBoardEntries() const {
     vector<shared_ptr<Player>> sortedPlayers = this->getSortedPlayers();
     for (size_t i = 0; i < sortedPlayers.size(); ++i) {
-        printLeaderBoardEntry(i + 1, *sortedPlayers[i]);
+        printLeaderBoardEntry(i + 1, *(sortedPlayers[i]));
     }
 }
+
 void MatamStory::playRound() {
 
     printRoundStart();
 
     /*===== TODO: Play a turn for each player =====*/
-    for(shared_ptr<Player> player: this->players) {
+    for(const shared_ptr<Player>& player: this->players) { // changed to const reference to avoid copying
         if(!player->statsManager->isKnockedOut()) { // play only if not Knocked out
             playTurn(*player);
         }
