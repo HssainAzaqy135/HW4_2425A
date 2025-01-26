@@ -79,7 +79,7 @@ std::unique_ptr<Monster> ItemFactory::makePack(istream &stream) const {
     }
     // ALL good, make the pack
     string currMonsterName;
-    for (int i = 0; i < size; ++i) {
+    for (unsigned int i = 0; i < size; ++i) {
         stream >> currMonsterName;
         if(currMonsterName.empty()){ // changed this as well
             throw std::runtime_error("Invalid Events File");

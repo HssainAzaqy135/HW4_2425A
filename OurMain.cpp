@@ -1,13 +1,28 @@
-//
-// Created by kingh on 18/01/2025.
-//
+
 #include <string>
 #include <iostream>
 #include <fstream>
 
+#include "MatamStory.h"
+
+using std::string;
+using std::cout;
+using std::endl;
+using std::exception;
+using std::ifstream;
+
 int main() {
-    std::string name = "Noder";
-    char * name_char_star = name.data();
-    std::cout << name_char_star[0] << std::endl;
-    return 0;
+    char str1[] = "C:/Users/areg1/Documents/GitHub/HW4_2425A/tests/test1.events";
+    char str2[] = "C:/Users/areg1/Documents/GitHub/HW4_2425A/tests/test1.players";
+    ifstream eventsStream(str1);
+    ifstream playersStream(str2);
+
+    try {
+        MatamStory game(eventsStream, playersStream);
+        game.play();
+    }
+    catch (const exception& e) {
+        cout << e.what() << endl;
+        return 1;
+    }
 }
