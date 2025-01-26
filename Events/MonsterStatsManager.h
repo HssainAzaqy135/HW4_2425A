@@ -2,7 +2,7 @@
 #pragma once
 
 class MonsterStatsManager {
-    unsigned int combatPower;
+    unsigned int combatPower; // base only
     unsigned int loot;
     unsigned int damage;
 

@@ -12,6 +12,13 @@ string Character::getBehavior() const {
     return this->behavior;
 }
 
+Responsible::Responsible():Character() {
+    this->behavior = "Responsible";
+}
+RiskTaking::RiskTaking():Character() {
+    this->behavior = "RiskTaking";
+}
+
 unsigned int Responsible::maxBuyablePotions(const Player &player) const {
     unsigned int hpToHeal = computeHpToHeal(player);
     unsigned int hpBottleneck = (hpToHeal % Player::POTION_HEAL != 0) ? ((hpToHeal / Player::POTION_HEAL) + 1) :

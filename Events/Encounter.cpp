@@ -16,7 +16,7 @@ string Encounter::playEvent(Player &player) {
         player.statsManager->gainCoinsBy(this->monster->getLoot());
         player.statsManager->levelUp();
         player.job->postWinImplications(player);
-        retString = getEncounterWonMessage(player, this->monster->getDamage());
+        retString = getEncounterWonMessage(player, this->monster->getLoot());
     }
     this->monster->applyPostEncounterChanges();
     return retString;

@@ -28,5 +28,6 @@ add_executable(HW4_2425A
         Events/Encounter.h
         MatamStory.h
         MatamStory.cpp
+#        main.cpp
 )
 

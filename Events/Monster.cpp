@@ -29,12 +29,12 @@ std::string Monster::formatStatsHelper(unsigned int CombatPower, unsigned int Lo
     return monsterStats;
 }
 
-Monster::Monster(unsigned int CombatPower, unsigned int Loot, unsigned int Damage)
-        : statsManager(std::make_unique<MonsterStatsManager>(CombatPower, Loot, Damage)) {}
+Monster::Monster(unsigned int CombatPower, unsigned int Loot, unsigned int Damage,std::string name)
+        : statsManager(std::make_unique<MonsterStatsManager>(CombatPower, Loot, Damage)), Name(name) {}
 
 std::string Monster::getEncounterString() const {
     std::string retString;
-    std::string statsString = Monster::formatStatsHelper(this->statsManager->getCombatPower(),
+    std::string statsString = Monster::formatStatsHelper(this->getCombatPower(),
                                                          this->statsManager->getLoot(),this->statsManager->getDamage());
     retString = this->getName() + " " + statsString;
     return  retString;
@@ -86,7 +86,7 @@ unsigned int Pack::MonsterCount() const {
     return total_pack_size;
 }
 
-Pack::Pack(std::vector<std::unique_ptr<Monster>> monsters) :Monster(0,0,0)//not relevant here
+Pack::Pack(std::vector<std::unique_ptr<Monster>> monsters) :Monster(0,0,0,"Pack")//not relevant here
 ,packMonsters(std::move(monsters)) {
 }
 

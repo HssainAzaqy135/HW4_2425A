@@ -12,7 +12,7 @@ protected:
     std::unique_ptr<MonsterStatsManager> statsManager;
     std::string Name;
 
-    Monster(unsigned int CombatPower, unsigned int Loot, unsigned int Damage);
+    Monster(unsigned int CombatPower, unsigned int Loot, unsigned int Damage,std::string name = "");
 
 public:
     Monster() = delete;
@@ -35,9 +35,8 @@ protected:
     static const unsigned int SNAIL_LOOT = 2;
     static const unsigned int SNAIL_DAMAGE = 10;
 
-    std::string Name = "Snail";
 public:
-    Snail() : Monster(SNAIL_COMBAT_POWER, SNAIL_LOOT, SNAIL_DAMAGE) {};
+    Snail() : Monster(SNAIL_COMBAT_POWER, SNAIL_LOOT, SNAIL_DAMAGE,"Snail") {};
 
 };
 
@@ -48,9 +47,8 @@ protected:
     static const unsigned int SLIME_LOOT = 5;
     static const unsigned int SLIME_DAMAGE = 25;
 
-    std::string Name = "Slime";
 public:
-    Slime() : Monster(SLIME_COMBAT_POWER, SLIME_LOOT, SLIME_DAMAGE) {};
+    Slime() : Monster(SLIME_COMBAT_POWER, SLIME_LOOT, SLIME_DAMAGE,"Slime") {};
 
 };
 
@@ -62,17 +60,15 @@ protected:
     static const unsigned int BALROG_DAMAGE = 9001;
     static const unsigned int BALROG_STRENGTH_MULTIPLIER = 2;
 
-    std::string Name = "Balrog";
     unsigned int num_encounters = 0;
 public:
-    Balrog() : Monster(BALROG_COMBAT_POWER, BALROG_LOOT, BALROG_DAMAGE) {};
+    Balrog() : Monster(BALROG_COMBAT_POWER, BALROG_LOOT, BALROG_DAMAGE,"Balrog") {};
     unsigned int getCombatPower() const override;
     void applyPostEncounterChanges() override;
 };
 
 class Pack : public Monster {
 protected:
-    std::string Name = "Pack";
     std::vector<std::unique_ptr<Monster>> packMonsters;
 public:
     Pack(std::vector<std::unique_ptr<Monster>> monsters);
