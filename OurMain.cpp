@@ -12,8 +12,11 @@ using std::exception;
 using std::ifstream;
 
 int main() {
-    char str1[] = "C:/Users/areg1/Documents/GitHub/HW4_2425A/tests/test1.events";
-    char str2[] = "C:/Users/areg1/Documents/GitHub/HW4_2425A/tests/test1.players";
+    ////areg paths
+    // char str1[] = "C:/Users/areg1/Documents/GitHub/HW4_2425A/tests/test1.events";
+    // char str2[] = "C:/Users/areg1/Documents/GitHub/HW4_2425A/tests/test1.players";
+    char str1[] = "C:/Users/kingh/Desktop/Semester7/Intro_to_systems_programming/EX4_MATAM/HW4_2425A/tests/test1.events";
+    char str2[] = "C:/Users/kingh/Desktop/Semester7/Intro_to_systems_programming/EX4_MATAM/HW4_2425A/tests/test1.players";
     ifstream eventsStream(str1);
     ifstream playersStream(str2);
 

@@ -4,7 +4,8 @@
 #include "Player.h"
 
 Player::Player(const std::string name, std::unique_ptr<Job> job, std::unique_ptr<Character>
-        character) : name(name) ,character(std::move(character)),job(std::move(job))
+        character) : name(name) ,statsManager(std::make_unique<PlayerStatsManager>()),
+        character(std::move(character)),job(std::move(job))
 {
     this->job->startGameAttributes(*this);
 }
