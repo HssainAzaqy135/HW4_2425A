@@ -4,6 +4,7 @@ project(HW4_2425A)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(HW4_2425A
+#        OurMain.cpp
         Utilities.h
         Utilities.cpp
         Players/PlayerStatsManager.cpp
@@ -27,7 +28,7 @@ add_executable(HW4_2425A
         Events/Encounter.h
         MatamStory.h
         MatamStory.cpp
-        #main.cpp
-        OurMain.cpp
+        main.cpp
+        Players/Exeptions.h
 )
 

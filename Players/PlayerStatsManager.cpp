@@ -1,4 +1,5 @@
 #include "PlayerStatsManager.h"
+#include "Exeptions.h"
 
 #include <stdexcept>
 
@@ -60,7 +61,7 @@ void PlayerStatsManager::loseForceBy(unsigned int amount) { //more readable code
 void PlayerStatsManager::payCoins(unsigned int amount) {
     if(this->coins < amount) {
         //can't pay
-        throw std::runtime_error("Can't pay coins");// shouldn't get here
+        throw CantPayCoins();// shouldn't get here
     }else {
         this->coins -= amount;
     }

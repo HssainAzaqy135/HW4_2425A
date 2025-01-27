@@ -9,7 +9,7 @@ MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) 
     try {
         this->events = factory->createEvents(eventsStream);
     } catch (...) {
-        throw std::runtime_error("Invalid Events File");
+        throw InvalidEventsFile();
     }
     this->currentEvent = this->events.begin(); // to be cyclically reset to events. begin when reaching end
     /*==========================================*/
@@ -18,7 +18,7 @@ MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) 
     try {
         this->players = factory->createPlayers(playersStream);
     } catch (...) {
-        throw std::runtime_error("Invalid Players File");
+        throw InvalidPlayersFile();
     }
     /*============================================*/
 

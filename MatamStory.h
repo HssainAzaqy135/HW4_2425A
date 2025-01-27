@@ -4,6 +4,7 @@
 #include "Events/ItemFactory.h"
 #include "Players/Player.h"
 #include "Events/Event.h"
+#include "Players/Exeptions.h"
 #include <vector>
 #include <memory>
 #include <iostream>

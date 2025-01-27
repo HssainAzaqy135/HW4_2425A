@@ -33,7 +33,7 @@ std::vector<shared_ptr<Player>> ItemFactory::createPlayers(istream &playersStrea
     string jobName;
     while(playersStream >> playerName >> jobName >> characterName) { // fixed this issue (we didn't include <iostream> hehe...)
         if(!playerParametersCheck(playerName, jobName, characterName)) {
-            throw std::runtime_error("Invalid Players File");
+            throw InvalidPlayersFile();
         }
         // All valid, now make stuff
         std::unique_ptr<Job> job = jobMakingFunctions.at(jobName)();
@@ -42,7 +42,7 @@ std::vector<shared_ptr<Player>> ItemFactory::createPlayers(istream &playersStrea
     }
     // Check if too many players
     if(players.size() < MIN_PLAYERS || players.size() > MAX_PLAYERS) {
-        throw std::runtime_error("Invalid Players File");
+        throw InvalidPlayersFile();
     }
 
     return players;
@@ -62,7 +62,7 @@ std::vector<unique_ptr<Event>> ItemFactory::createEvents(istream &eventsStream) 
         }
     }
     if(events.size() < MIN_EVENTS_NUM){
-        throw std::runtime_error("Invalid Events File");
+        throw InvalidEventsFile();
     }
     return events;
 }
@@ -81,17 +81,17 @@ std::unique_ptr<Monster> ItemFactory::makePack(istream &stream) const {
     try{
         size = std::stoi(sizeStr);
     }catch(...){
-        throw std::runtime_error("Invalid Events File");
+        throw InvalidEventsFile();
     }
     if(size < MIN_PACK_SIZE){
-        throw std::runtime_error("Invalid Events File");
+        throw InvalidEventsFile();
     }
     // ALL good, make the pack
     string currMonsterName;
     for (unsigned int i = 0; i < size; ++i) {
         stream >> currMonsterName;
         if(currMonsterName.empty()){ // changed this as well
-            throw std::runtime_error("Invalid Events File");
+            throw InvalidEventsFile();
         }else{
             monstersVector.push_back(monstersMakingFunctions.at(currMonsterName)(stream));
         }
