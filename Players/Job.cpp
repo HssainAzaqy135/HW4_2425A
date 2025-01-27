@@ -20,7 +20,7 @@ int Job::postSolarEclipseImplications(Player &player) const {
 }
 
 unsigned int Warrior::computeCombatPower(Player& player) const {
-    return Job::computeCombatPower(player) + player.statsManager->getForce() * Warrior::FORCE_MULT;
+    return player.statsManager->getLevel() + player.statsManager->getForce() * Warrior::FORCE_MULT;
 }
 
 void Warrior::postWinImplications(Player& player) const {
