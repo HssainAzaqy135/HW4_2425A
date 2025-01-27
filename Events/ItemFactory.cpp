@@ -1,16 +1,20 @@
-
 #include "ItemFactory.h"
 
 // Player Making
 
 using std::find;
-
 bool ItemFactory::playerParametersCheck(string name, string job, string character) const {
     // name check
     if(name.length() < MIN_PLAYER_NAME_LEN || name.length() > MAX_PLAYER_NAME_LEN)
     {
         return false;
     }
+    for (char c : name) {
+        if (!(isalpha(c))) {
+            return false;
+        }
+    }
+
     // job check
     if(jobMakingFunctions.find(job) == jobMakingFunctions.end()) { // changed to ==, was !=, I think that was a mistake, not sure
         return false;
@@ -69,6 +73,11 @@ std::unique_ptr<Monster> ItemFactory::makePack(istream &stream) const {
     unsigned int size;
     string sizeStr;
     stream >> sizeStr;
+
+    if (sizeStr.find('.') != std::string::npos) {
+        throw std::runtime_error("Invalid Events File");
+    }
+
     try{
         size = std::stoi(sizeStr);
     }catch(...){
@@ -86,6 +95,7 @@ std::unique_ptr<Monster> ItemFactory::makePack(istream &stream) const {
         }else{
             monstersVector.push_back(monstersMakingFunctions.at(currMonsterName)(stream));
         }
+        currMonsterName.clear(); // should do in case of eof not overriding last string
     }
     return std::make_unique<Pack>(std::move(monstersVector));
 }

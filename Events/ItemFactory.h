@@ -16,7 +16,7 @@
 #include <algorithm>
 #include <map>
 #include <functional>
-
+#include <cctype>
 
 using std::unique_ptr;
 using std::shared_ptr;
@@ -31,7 +31,7 @@ private:
 
     const unsigned int MIN_PLAYERS = 2;
     const unsigned int MAX_PLAYERS = 6;
-
+    bool charNotValid(char c) const;
     bool playerParametersCheck(string name,string job, string character)const;
     const std::map<std::string, std::function<std::unique_ptr<Job>()>> jobMakingFunctions = {
         {"Warrior", []() { return std::make_unique<Warrior>(); }},

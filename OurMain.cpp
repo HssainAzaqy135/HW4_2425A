@@ -14,8 +14,8 @@
  //     ////areg paths
  //     // char str1[] = "C:/Users/areg1/Documents/GitHub/HW4_2425A/tests/test1.events";
  //     // char str2[] = "C:/Users/areg1/Documents/GitHub/HW4_2425A/tests/test1.players";
- //     char str1[] = "C:/Users/kingh/Desktop/Semester7/Intro_to_systems_programming/EX4_MATAM/HW4_2425A/TechnionMatam/HW4/tests/test9-knocked-out-winner.events";
- //     char str2[] = "C:/Users/kingh/Desktop/Semester7/Intro_to_systems_programming/EX4_MATAM/HW4_2425A/TechnionMatam/HW4/tests/test9-knocked-out-winner.players";
+ //     char str1[] = "C:/Users/kingh/Desktop/Semester7/Intro_to_systems_programming/EX4_MATAM/HW4_2425A/TechnionMatam/HW4/tests/test23-double-pack-size.events";
+ //     char str2[] = "C:/Users/kingh/Desktop/Semester7/Intro_to_systems_programming/EX4_MATAM/HW4_2425A/TechnionMatam/HW4/tests/test23-double-pack-size.players";
  //     ifstream eventsStream(str1);
  //     ifstream playersStream(str2);
  //
