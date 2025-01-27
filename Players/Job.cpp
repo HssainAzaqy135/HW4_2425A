@@ -11,6 +11,10 @@ unsigned int Job::computeCombatPower(Player& player) const {
 }
 
 int Job::postSolarEclipseImplications(Player &player) const {
+    if(player.statsManager->getForce() == 0) {
+        // no force to lose, return no effect
+        return 0;
+    }
     player.statsManager->loseForceBy(Job::BASE_SOLAR_ECLIPSE_DEBUFF); //add const
     return -Job::BASE_SOLAR_ECLIPSE_DEBUFF;
 }
@@ -33,6 +37,10 @@ void Archer::startGameAttributes(Player& player) const {
 }
 
 int Magician::postSolarEclipseImplications(Player &player) const {
+    if(player.statsManager->getForce() == 0) {
+        // no force to lose, return no effect
+        return 0;
+    }
     player.statsManager->gainForceBy(Magician::MAGICIAN_SOLAR_ECLIPSE_BUFF); //add const
     return Magician::MAGICIAN_SOLAR_ECLIPSE_BUFF;
 }
