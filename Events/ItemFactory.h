@@ -6,7 +6,7 @@
 #include "../Players/Player.h"
 #include "../Players/Character.h"
 #include "../Players/Job.h"
-#include "../players/OurExceptions.h"
+#include "../Players/OurExceptions.h"
 #include "Monster.h"
 #include "Encounter.h"
 #include "SpecialEvent.h"
