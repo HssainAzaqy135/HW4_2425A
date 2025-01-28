@@ -39,11 +39,11 @@ void MatamStory::playTurn(Player& player) {
     string eventOutcome = (*(this->currentEvent))->playEvent(player);
     printTurnOutcome(eventOutcome);
     // ----------------
+    m_turnIndex++;
     this->currentEvent++;
     if (this->currentEvent == events.end()) {
         this->currentEvent = events.begin();
     }
-    m_turnIndex++;
 }
 
 // helpers for play round
@@ -51,6 +51,7 @@ std::vector<std::shared_ptr<Player>> MatamStory::getSortedPlayers() const {
     std::vector<std::shared_ptr<Player>> sortedPlayers = this->players;
 
     std::sort(sortedPlayers.begin(), sortedPlayers.end(),
+        // Sorting lambda, for sorting in descending order I think
         [](const std::shared_ptr<Player>& player1, const std::shared_ptr<Player>& player2) {
             if (player1->statsManager->getLevel() > player2->statsManager->getLevel()) {
                 return true;
@@ -104,6 +105,7 @@ void MatamStory::playRound() {
 bool MatamStory::isGameOver() const {
     /*===== TODO: Implement the game over condition =====*/
     unsigned int knockedOutPlayersCount = 0;
+    // First this, for knocked out winner case then check if all are knocked out
     for (const shared_ptr<Player>& player : this->players) {
         if(player->statsManager->getLevel() == Player::maxPlayerLevel) {
             return true;

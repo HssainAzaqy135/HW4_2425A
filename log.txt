@@ -1,0 +1,528 @@
+* commit 3e8c7ad6c787c808c7a8b29ef7a07550d934e2d1
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Tue Jan 28 13:29:31 2025 +0200
+| 
+|     update UML for exception classes, removed reference from exceptions constructors
+| 
+|  Players/OurExceptions.h |   6 ++--
+|  UML_for_dry.drawio      |  79 ++++++++++++++++++++++++++++++++--------------
+|  dry.docx                | Bin 63566 -> 63730 bytes
+|  3 files changed, 59 insertions(+), 26 deletions(-)
+| 
+* commit 39279e9cebce0cb18618a88c144048d6344a1dbf
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Tue Jan 28 10:48:30 2025 +0200
+| 
+|     refactor Exeptions to OurExceptions
+| 
+|  CMakeLists.txt                           |   2 +-
+|  Events/ItemFactory.h                     |   2 +-
+|  MatamStory.h                             |   2 +-
+|  MatamStoryTest                           | Bin 2203648 -> 2232216 bytes
+|  Players/{Exeptions.h => OurExceptions.h} |   0
+|  Players/PlayerStatsManager.cpp           |   2 +-
+|  6 files changed, 4 insertions(+), 4 deletions(-)
+| 
+* commit 155defa4057d9b98d43f42be4ced4d35e18e02bb
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Mon Jan 27 23:34:52 2025 +0200
+| 
+|     add exceptions header
+| 
+|  CMakeLists.txt                 |   5 +++--
+|  Events/ItemFactory.cpp         |  12 ++++++------
+|  Events/ItemFactory.h           |   1 +
+|  MatamStory                     | Bin 520976 -> 520968 bytes
+|  MatamStory.cpp                 |   4 ++--
+|  MatamStory.h                   |   1 +
+|  Players/Exeptions.h            |  26 ++++++++++++++++++++++++++
+|  Players/PlayerStatsManager.cpp |   3 ++-
+|  8 files changed, 41 insertions(+), 11 deletions(-)
+| 
+* commit e46588081683e9d87a8dd4f386fa5071eb91ae49
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Mon Jan 27 22:54:39 2025 +0200
+| 
+|     Dry done, need git log and exceptions
+| 
+|  dry.docx     | Bin 60056 -> 63566 bytes
+|  ~$dry.docx   | Bin 162 -> 0 bytes
+|  ~WRL0003.tmp |   0
+|  3 files changed, 0 insertions(+), 0 deletions(-)
+| 
+* commit 473a1e737227634f862bce439d422292db5f77c9
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Mon Jan 27 17:34:53 2025 +0200
+| 
+|     initiaL word document
+| 
+|  dry.docx     | Bin 0 -> 60056 bytes
+|  ~$dry.docx   | Bin 0 -> 162 bytes
+|  ~WRL0003.tmp |   0
+|  3 files changed, 0 insertions(+), 0 deletions(-)
+| 
+* commit c9f4603e9ea4f872b460dbeca7283d5a9931c7bc
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Mon Jan 27 16:13:48 2025 +0200
+| 
+|     Change the way decimal pack sizes are processed to exception
+| 
+|  Events/ItemFactory.cpp |  14 ++++++++++++--
+|  Events/ItemFactory.h   |   4 ++--
+|  MatamStoryTest         | Bin 2201448 -> 2203648 bytes
+|  OurMain.cpp            |   4 ++--
+|  test_results.html      |  34 +++++++++++++++++++++-------------
+|  5 files changed, 37 insertions(+), 19 deletions(-)
+| 
+* commit 51626b8690a0cb2660d7ec2105687076782afa58
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Mon Jan 27 14:23:21 2025 +0200
+| 
+|     fix combat power for warrior issue
+| 
+|  MatamStoryTest    | Bin 2201448 -> 2201448 bytes
+|  OurMain.cpp       |   4 ++--
+|  Players/Job.cpp   |   2 +-
+|  test_results.html |  50 +++++++++++++++++++++++++++++++-------------------
+|  4 files changed, 34 insertions(+), 22 deletions(-)
+| 
+* commit c4d0f88a2716bbb1e4532a9019811bf7e0bdf2b0
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Mon Jan 27 14:11:15 2025 +0200
+| 
+|     fix negative force issue
+| 
+|  CMakeLists.txt          |   4 +-
+|  MatamStoryTest          | Bin 2201392 -> 2201448 bytes
+|  OurMain.cpp             |  60 ++---
+|  Players/Job.cpp         |   8 +
+|  test_results.html       |  10 +-
+|  test_results_prior.html | 622 ++++++++++++++++++++++++++++++++++++++++++++++
+|  6 files changed, 668 insertions(+), 36 deletions(-)
+| 
+* commit 6c888d2a0a60781223aa7b5c8ff0743384da7476
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sun Jan 26 22:36:31 2025 +0200
+| 
+|     pass most tests, 11 to go
+| 
+|  .gitmodules        |   6 +
+|  CMakeLists.txt     |   4 +-
+|  MatamGenericTester |   1 +
+|  MatamStoryTest     | Bin 0 -> 2201392 bytes
+|  TechnionMatam      |   1 +
+|  test_results.html  | 622 +++++++++++++++++++++++++++++++++++++++++++++++++++
+|  6 files changed, 632 insertions(+), 2 deletions(-)
+| 
+* commit 367eb5b5ac5298a6260df2a057d341ad3dabbc31
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sun Jan 26 21:59:06 2025 +0200
+| 
+|     pass all staff tests, need student tests
+| 
+|  CMakeLists.txt               |   1 +
+|  Events/Encounter.cpp         |   2 +-
+|  Events/Monster.cpp           |   8 ++--
+|  Events/Monster.h             |  12 ++----
+|  Events/MonsterStatsManager.h |   2 +-
+|  Events/SpecialEvent.cpp      |   8 ++++
+|  Events/SpecialEvent.h        |   6 ++-
+|  MatamStory                   | Bin 0 -> 520976 bytes
+|  OurMain.cpp                  |  61 +++++++++++++-------------
+|  Players/Character.cpp        |   7 +++
+|  Players/Character.h          |   2 +
+|  test1.out                    |  96 +++++++++++++++++++++++++++++++++++++++++
+|  test2.out                    |   1 +
+|  test3.out                    |   1 +
+|  14 files changed, 160 insertions(+), 47 deletions(-)
+| 
+* commit 55770a452d836addfb9cce3b01036922fd7222ee
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sun Jan 26 20:39:48 2025 +0200
+| 
+|     Forgot to initialize PlayerStatsManager in the player constructor, yippppeeee
+| 
+|  OurMain.cpp        | 7 +++++--
+|  Players/Player.cpp | 3 ++-
+|  2 files changed, 7 insertions(+), 3 deletions(-)
+| 
+* commit 66ab23ab8217456e56ac6ccc6f109369fecc962e
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Sun Jan 26 20:21:42 2025 +0200
+| 
+|     small fix, start debug
+| 
+|  Events/ItemFactory.cpp |  2 +-
+|  OurMain.cpp            | 31 +++++++++++++++++++++++--------
+|  2 files changed, 24 insertions(+), 9 deletions(-)
+| 
+* commit 2ed07e36ec46a095e68ce8e2a31609337b0d56ee
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Sun Jan 26 17:51:53 2025 +0200
+| 
+|     issue very small changes
+| 
+|  MatamStory.cpp | 9 ++++-----
+|  1 file changed, 4 insertions(+), 5 deletions(-)
+| 
+* commit 11b5fdf03183b31cf99c6ff466dde7794e84ce26
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sat Jan 25 15:47:12 2025 +0200
+| 
+|     Finish code, tests need to be checked
+| 
+|  CMakeLists.txt   |  1 -
+|  Events/Event.cpp |  3 ---
+|  MatamStory.cpp   | 69 ++++++++++++++++++++++++++++++++++++++++--------------
+|  MatamStory.h     |  2 +-
+|  4 files changed, 53 insertions(+), 22 deletions(-)
+| 
+* commit e39dfa219e2c1b425f0479a0805237ea1ecdbdda
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sat Jan 25 14:07:13 2025 +0200
+| 
+|     mid way implementing leaderBoard changes
+| 
+|  Events/ItemFactory.cpp |  9 ++++----
+|  Events/ItemFactory.h   |  5 +++--
+|  MatamStory.cpp         | 53 +++++++++++++++++++++++++++++++++++++++++-------
+|  MatamStory.h           | 17 ++++++++++++++--
+|  4 files changed, 68 insertions(+), 16 deletions(-)
+| 
+* commit 8c77dfe62db1f60166c12e379528c3463e3428ae
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sat Jan 25 13:09:39 2025 +0200
+| 
+|     change unordered map to just map, fix include cycle in utilities and event class
+| 
+|  CMakeLists.txt        |  5 ++++-
+|  Events/Encounter.h    |  1 +
+|  Events/Event.h        |  2 +-
+|  Events/ItemFactory.h  | 20 ++++++++++----------
+|  Events/SpecialEvent.h |  1 +
+|  5 files changed, 17 insertions(+), 12 deletions(-)
+| 
+* commit 528898754784390051e3091e073cf2d792bb4807
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Fri Jan 24 23:44:58 2025 +0200
+| 
+|     fix problem with input stream, and some logic
+| 
+|  CMakeLists.txt         |  2 ++
+|  Events/ItemFactory.cpp | 31 +++++++++++--------------------
+|  Events/ItemFactory.h   |  8 +++++---
+|  3 files changed, 18 insertions(+), 23 deletions(-)
+| 
+* commit 1ca96a2ee86055eb210ae2fac56a896c961ee5da
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Fri Jan 24 21:18:54 2025 +0200
+| 
+|     fix factory lambda
+| 
+|  Events/ItemFactory.cpp | 2 +-
+|  Events/ItemFactory.h   | 2 +-
+|  2 files changed, 2 insertions(+), 2 deletions(-)
+| 
+* commit 1f78c8665484bcbda656243ae43a984094b1d9b2
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Fri Jan 24 20:52:39 2025 +0200
+| 
+|     Implement Event factory
+| 
+|  CMakeLists.txt         | 42 +++++++++++++++++++++---------------------
+|  Events/Event.h         |  1 +
+|  Events/ItemFactory.cpp | 48 ++++++++++++++++++++++++++++++++++++++++++++++--
+|  Events/ItemFactory.h   | 14 ++++++++++----
+|  Events/SpecialEvent.h  |  1 +
+|  Players/Character.h    |  2 ++
+|  6 files changed, 81 insertions(+), 27 deletions(-)
+| 
+* commit 948ad6adb68e22199ed9a7fdfcf1d85039dba515
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Fri Jan 24 19:42:35 2025 +0200
+| 
+|     Finish Player factory
+| 
+|  CMakeLists.txt         | 40 +++++++++++++++++------------------
+|  Events/ItemFactory.cpp | 52 +++++++++++++++++++++++++++++++++++++++++++++
+|  Events/ItemFactory.h   | 55 ++++++++++++++++++++++++++++++++++++++++++++----
+|  OurMain.cpp            | 17 ++++-----------
+|  4 files changed, 127 insertions(+), 37 deletions(-)
+| 
+* commit 4b85f2c3e4a51487caaff97eea45711fa75cffa1
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Fri Jan 24 17:47:39 2025 +0200
+| 
+|     add new pack members counting and solarEclipse handling constants
+| 
+|  Events/Monster.cpp      | 12 +++++++++---
+|  Events/Monster.h        |  3 ++-
+|  Events/SpecialEvent.cpp |  4 +---
+|  Events/SpecialEvent.h   |  1 -
+|  Players/Job.cpp         | 10 ++++++----
+|  Players/Job.h           |  6 ++++--
+|  6 files changed, 22 insertions(+), 14 deletions(-)
+| 
+* commit a65106d09db6258cce43a45ec684da04220ccca6
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Fri Jan 24 17:31:15 2025 +0200
+| 
+|     add handle solar eclipse
+| 
+|  Events/SpecialEvent.cpp |  8 --------
+|  Players/Job.cpp         | 10 +++++++++-
+|  Players/Job.h           |  3 +++
+|  3 files changed, 12 insertions(+), 9 deletions(-)
+| 
+* commit 31c898164c09dcf6439616cfa28e1f2549a273d1
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Thu Jan 23 22:41:29 2025 +0200
+| 
+|     add encounters and special events
+|     
+|     almost finished, needs a little more fixing
+| 
+|  CMakeLists.txt          |  3 +++
+|  Events/Encounter.cpp    | 24 ++++++++++++++++++++++++
+|  Events/Encounter.h      | 17 +++++++++++++++++
+|  Events/Event.cpp        |  3 +++
+|  Events/Event.h          | 11 ++++-------
+|  Events/Monster.cpp      | 28 ++++++++++++++++++++++++++--
+|  Events/Monster.h        |  6 +++++-
+|  Events/SpecialEvent.cpp | 32 +++++++++++++++++++++++++++++---
+|  Events/SpecialEvent.h   |  9 +++++++--
+|  Players/Character.cpp   | 11 ++++-------
+|  Players/Job.cpp         |  2 +-
+|  Players/Job.h           |  4 ++--
+|  Players/Player.h        |  4 ++++
+|  13 files changed, 129 insertions(+), 25 deletions(-)
+| 
+* commit 04870fd98433af85d7de7bc3cdd869c1b9adba09
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Thu Jan 23 18:33:12 2025 +0200
+| 
+|     finish monster with stats manager
+| 
+|  CMakeLists.txt                 |  4 +++
+|  Events/ItemFactory.cpp         |  5 ++++
+|  Events/ItemFactory.h           | 14 +++++++++
+|  Events/Monster.cpp             | 10 +++++--
+|  Events/Monster.h               | 11 +++----
+|  Events/MonsterStatsManager.cpp | 34 ++++++++++++++++++++++
+|  Events/MonsterStatsManager.h   | 19 ++++++++++++
+|  UML_for_dry.drawio             | 63 +++++++++++++++++++++++++++++++++-------
+|  8 files changed, 140 insertions(+), 20 deletions(-)
+| 
+* commit eae962c639da6830c7d9a3b15c82ec3b2dbd61f1
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Tue Jan 21 23:51:02 2025 +0200
+| 
+|     Implement getDescription again
+| 
+|  Players/Player.cpp | 15 +++++++--------
+|  1 file changed, 7 insertions(+), 8 deletions(-)
+| 
+* commit 933aaaf0d3bcd50f3d9c975c9cd403787f50a6de
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Tue Jan 21 23:45:12 2025 +0200
+| 
+|     Move player name outside of stats, PlayerStatsManager now with default constructor no taking name. Implement all staff Player functions
+| 
+|  CMakeLists.txt                 |  1 +
+|  Players/Job.cpp                |  9 +++++----
+|  Players/Job.h                  |  7 ++++---
+|  Players/Player.cpp             | 42 ++++++++++++++++++++++++++++++++++++++++
+|  Players/Player.h               | 12 ++++++------
+|  Players/PlayerStatsManager.cpp |  3 ---
+|  Players/PlayerStatsManager.h   |  5 -----
+|  7 files changed, 58 insertions(+), 21 deletions(-)
+| 
+* commit 1403470e5379edad3d4361635f7ea6c30485774c
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Tue Jan 21 22:05:35 2025 +0200
+| 
+|     Implement all monsters
+| 
+|  Events/Monster.cpp | 59 ++++++++++++++++++++++++++++++++++++++++++++++----
+|  Events/Monster.h   | 61 ++++++++++++++++++++++++++++++++++++++--------------
+|  OurMain.cpp        | 13 ++++++++++-
+|  3 files changed, 112 insertions(+), 21 deletions(-)
+| 
+* commit 4932fa41f3aba7a862acf26b7c85954803ed9ab7
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Tue Jan 21 15:48:19 2025 +0200
+| 
+|     fix monster.h to have no code mult
+| 
+|  Events/Monster.cpp | 33 ++++-----------------------------
+|  Events/Monster.h   | 15 +++------------
+|  2 files changed, 7 insertions(+), 41 deletions(-)
+| 
+* commit 0d98d684fc5bf725b46144a6978e1e4d7059029b
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Sun Jan 19 23:50:35 2025 +0200
+| 
+|     add monster class and some other
+|     
+|     added some functionality to the monster class
+| 
+|  CMakeLists.txt          |  5 ++++
+|  Events/Event.h          |  9 +++++++
+|  Events/Monster.cpp      | 39 +++++++++++++++++++++++++++++
+|  Events/Monster.h        | 64 +++++++++++++++++++++++++++++++++++++++++++++++
+|  Events/SpecialEvent.cpp |  5 ++++
+|  Events/SpecialEvent.h   | 15 +++++++++++
+|  Players/Player.h        |  3 ++-
+|  7 files changed, 139 insertions(+), 1 deletion(-)
+| 
+* commit 463b3f87b0e8ed32576394ebf28ca8390d328105
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sun Jan 19 16:01:30 2025 +0200
+| 
+|     Add static consts to PlayerStatsManager
+| 
+|  Players/PlayerStatsManager.h | 19 +++++++++++--------
+|  1 file changed, 11 insertions(+), 8 deletions(-)
+| 
+* commit 5da154d3335fd9263e9fea823f4457c76f4136ec
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sat Jan 18 23:32:24 2025 +0200
+| 
+|     Add constants, constructors to Job subclasses, PlayerStatsManager now  clamps level at max of 10 defined at Player. Predeclare Player class to prevent cyclic includes
+| 
+|  Players/Character.cpp          |  5 +++--
+|  Players/Character.h            |  3 +--
+|  Players/Job.cpp                | 10 ++++------
+|  Players/Job.h                  | 26 +++++++++++++++++++++-----
+|  Players/Player.h               | 15 +++++++++++++--
+|  Players/PlayerStatsManager.cpp |  3 +++
+|  6 files changed, 45 insertions(+), 17 deletions(-)
+| 
+* commit 7323b786035407a7e87680ae507f9ced2cef970a
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Sat Jan 18 21:34:58 2025 +0200
+| 
+|     finish player subtree
+| 
+|  CMakeLists.txt                                    | 10 ++++--
+|  Players/Character.cpp                             | 32 +++++++++++++++++++
+|  Players/Character.h                               | 27 ++++++++++++++++
+|  Players/Job.cpp                                   | 29 ++++++++++++++++++
+|  Players/Job.h                                     | 34 +++++++++++++++++++++
+|  Players/Player.h                                  |  8 +++++
+|  .../PlayerStatsManager.cpp                        | 11 +++----
+|  .../PlayerStatsManager.h                          | 14 ++++-----
+|  8 files changed, 150 insertions(+), 15 deletions(-)
+| 
+* commit ba08244474c49bf8e43acc9f5cb8b7963ff74724
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sat Jan 18 18:23:40 2025 +0200
+| 
+|     Initial implementation of PlayerStatsManager
+| 
+|  CMakeLists.txt         |  4 ++-
+|  PlayerStatsManager.cpp | 76 ++++++++++++++++++++++++++++++++++++++++++++++++
+|  PlayerStatsManager.h   | 54 ++++++++++++++++++++++++++++++++++
+|  3 files changed, 133 insertions(+), 1 deletion(-)
+| 
+* commit 51cfa5229032ae6f91ff2d705970e3ed1d84e65d
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sat Jan 18 17:07:35 2025 +0200
+| 
+|     Re update UML
+| 
+|  .$UML_for_dry.drawio.dtmp | 342 --------------------------------------------
+|  UML_for_dry.drawio        |  12 +-
+|  2 files changed, 6 insertions(+), 348 deletions(-)
+| 
+* commit 52973b39e076f23c0fc9e000f9cb4c94df6e5b0d
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sat Jan 18 17:06:21 2025 +0200
+| 
+|     Update uml for PlayerStatsManager and more compact layout
+| 
+|  .$UML_for_dry.drawio.dtmp | 342 ++++++++++++++++++++++++++++++++++++++++++++
+|  OurMain.cpp               |   2 +-
+|  UML_for_dry.drawio        | 181 +++++++++++++----------
+|  3 files changed, 445 insertions(+), 80 deletions(-)
+| 
+* commit 775d278f0cd7d6041b0c6d9fcd77a95e7bbdf5d4
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Sat Jan 18 17:00:05 2025 +0200
+| 
+|     Add OurMain.cpp for testing
+| 
+|  CMakeLists.txt |  3 ++-
+|  OurMain.cpp    | 11 +++++++++++
+|  2 files changed, 13 insertions(+), 1 deletion(-)
+| 
+* commit 692b7ea610f87d0b0660f96397f8e67dd7b2e538
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Fri Jan 17 20:24:37 2025 +0200
+| 
+|     Add UML
+| 
+|  .$UML_for_dry.drawio.bkp |  44 +++++++
+|  UML_for_dry.drawio       | 319 +++++++++++++++++++++++++++++++++++++++++++++
+|  2 files changed, 363 insertions(+)
+| 
+* commit 53956b7c48ab6fc8cf312add4a150ad452ec9e61
+| Author: minmaxmarty <aregmkhitaryan@gmail.com>
+| Date:   Fri Jan 17 19:02:18 2025 +0200
+| 
+|     open project
+| 
+|  CMakeLists.txt | 6 ++++++
+|  1 file changed, 6 insertions(+)
+| 
+* commit b41e0f9ae567e7c7a3110b0c7f72700b39801b1c
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Fri Jan 17 18:00:23 2025 +0200
+| 
+|     Create .gitignore
+| 
+|  .gitignore | 2 ++
+|  1 file changed, 2 insertions(+)
+| 
+* commit 36e0a570a1ae4093ddf45c2cac7bd6665f8ac175
+| Author: Yinon Goldshtein <yinongold@gmail.com>
+| Date:   Wed Jan 8 19:52:22 2025 +0200
+| 
+|     updated course number in README
+| 
+|  README.md | 2 +-
+|  1 file changed, 1 insertion(+), 1 deletion(-)
+| 
+* commit 11db499619ae45b95224312022c5e0459653edcd
+| Author: Egbaria Mohammad-Baraa <102754795+EgbariaMohammad@users.noreply.github.com>
+| Date:   Wed Jan 8 19:48:30 2025 +0200
+| 
+|     Update README.md
+| 
+|  README.md | 4 ++--
+|  1 file changed, 2 insertions(+), 2 deletions(-)
+| 
+* commit 89b5f6299cabd5cfeb30a0873786055da6280436
+  Author: Yinon Goldshtein <yinongold@gmail.com>
+  Date:   Tue Jan 7 01:02:53 2025 +0200
+  
+      initial commit
+  
+   Events/Event.h       |  14 +++++
+   MatamStory.cpp       |  74 +++++++++++++++++++++++++
+   MatamStory.h         |  55 +++++++++++++++++++
+   Players/Player.h     |  51 +++++++++++++++++
+   README.md            |   7 +++
+   Utilities.cpp        | 117 +++++++++++++++++++++++++++++++++++++++
+   Utilities.h          | 146 +++++++++++++++++++++++++++++++++++++++++++++++++
+   main.cpp             |  40 ++++++++++++++
+   tests/test1.events   |   5 ++
+   tests/test1.expected |  96 ++++++++++++++++++++++++++++++++
+   tests/test1.players  |   3 +
+   tests/test2.events   |   4 ++
+   tests/test2.expected |   1 +
+   tests/test2.players  |   3 +
+   tests/test3.events   |   5 ++
+   tests/test3.expected |   1 +
+   tests/test3.players  |   2 +
+   17 files changed, 624 insertions(+)

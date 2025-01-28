@@ -32,12 +32,11 @@ private:
 
     const unsigned int MIN_PLAYERS = 2;
     const unsigned int MAX_PLAYERS = 6;
-    bool charNotValid(char c) const;
     bool playerParametersCheck(string name,string job, string character)const;
     const std::map<std::string, std::function<std::unique_ptr<Job>()>> jobMakingFunctions = {
-        {"Warrior", []() { return std::make_unique<Warrior>(); }},
         {"Magician", []() { return std::make_unique<Magician>(); }},
-        {"Archer", []() { return std::make_unique<Archer>(); }}
+        {"Archer", []() { return std::make_unique<Archer>(); }},
+        {"Warrior", []() { return std::make_unique<Warrior>(); }}
     };
     const std::map<std::string, std::function<std::unique_ptr<Character>()>> characterMakingFunctions = {
         {"Responsible", []() { return std::make_unique<Responsible>(); }},
