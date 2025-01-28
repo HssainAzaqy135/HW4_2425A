@@ -1,3 +1,77 @@
+*   commit 55b04b1d5dbafe075b78b6c578043673679e29ae
+|\  Merge: 49cd2d0 a50d581
+| | Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| | Date:   Tue Jan 28 14:12:04 2025 +0200
+| | 
+| |     On main: !!GitHub_Desktop<main>
+| | 
+| * commit a50d58199519870168f0025b27ece80d9e120b71
+|/  Author: HssainAzaqy135 <kinghssain135@gmail.com>
+|   Date:   Tue Jan 28 14:12:04 2025 +0200
+|   
+|       index on main: 49cd2d0 Fix OurExceptions folder path case sensitive
+| 
+* commit 49cd2d0067a6dcb4b9ca4f8624fa9e7e04bb8614
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Tue Jan 28 14:11:18 2025 +0200
+| 
+|     Fix OurExceptions folder path case sensitive
+| 
+|  Events/ItemFactory.h |   2 +-
+|  MatamStory           | Bin 520968 -> 2233192 bytes
+|  2 files changed, 1 insertion(+), 1 deletion(-)
+|   
+| * commit 05fb9ed985ff73f636c6d9ad326fb609f8e0eec2
+|/  Author: HssainAzaqy135 <kinghssain135@gmail.com>
+|   Date:   Tue Jan 28 14:00:34 2025 +0200
+|   
+|       Init submission
+|   
+|    .$UML_for_dry.drawio.bkp |  44 ---
+|    CMakeLists.txt           |  34 ---
+|    MatamGenericTester       |   1 -
+|    MatamStory               | Bin 520968 -> 0 bytes
+|    MatamStoryTest           | Bin 2233192 -> 0 bytes
+|    OurMain.cpp              |  30 --
+|    README.md                |   7 -
+|    TechnionMatam            |   1 -
+|    UML_for_dry.drawio       | 418 ----------------------------
+|    Utilities.cpp            | 117 --------
+|    Utilities.h              | 146 ----------
+|    dry.docx                 | Bin 63618 -> 0 bytes
+|    dry.pdf                  | Bin 0 -> 165591 bytes
+|    main.cpp                 |  40 ---
+|    test1.out                |  96 -------
+|    test2.out                |   1 -
+|    test3.out                |   1 -
+|    test_results.html        | 644 -------------------------------------------
+|    test_results_prior.html  | 622 -----------------------------------------
+|    tests/test1.events       |   5 -
+|    tests/test1.expected     |  96 -------
+|    tests/test1.players      |   3 -
+|    tests/test2.events       |   4 -
+|    tests/test2.expected     |   1 -
+|    tests/test2.players      |   3 -
+|    tests/test3.events       |   5 -
+|    tests/test3.expected     |   1 -
+|    tests/test3.players      |   2 -
+|    ~$dry.docx               | Bin 162 -> 0 bytes
+|    29 files changed, 2322 deletions(-)
+| 
+* commit fc0140be6cb848bb966d18dd2c381a5f485c95db
+| Author: HssainAzaqy135 <kinghssain135@gmail.com>
+| Date:   Tue Jan 28 13:56:18 2025 +0200
+| 
+|     Final polishing, update dry indexing of questions, add git log
+| 
+|  Events/ItemFactory.h |   5 +-
+|  MatamStory.cpp       |   4 +-
+|  MatamStoryTest       | Bin 2232216 -> 2233192 bytes
+|  dry.docx             | Bin 63730 -> 63618 bytes
+|  log.txt              | 528 +++++++++++++++++++++++++++++++++++++++++++++++++
+|  ~$dry.docx           | Bin 0 -> 162 bytes
+|  6 files changed, 533 insertions(+), 4 deletions(-)
+| 
 * commit 3e8c7ad6c787c808c7a8b29ef7a07550d934e2d1
 | Author: HssainAzaqy135 <kinghssain135@gmail.com>
 | Date:   Tue Jan 28 13:29:31 2025 +0200
