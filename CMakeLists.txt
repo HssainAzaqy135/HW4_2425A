@@ -29,6 +29,6 @@ add_executable(HW4_2425A
         MatamStory.h
         MatamStory.cpp
         main.cpp
-        Players/Exeptions.h
+        Players/OurExceptions.h
 )
 

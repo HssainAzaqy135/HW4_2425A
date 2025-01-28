@@ -1,5 +1,5 @@
 #include "PlayerStatsManager.h"
-#include "Exeptions.h"
+#include "OurExceptions.h"
 
 #include <stdexcept>
 
